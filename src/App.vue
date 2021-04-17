@@ -1,5 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <h2>안녕하세요</h2>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -20,7 +21,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #3a76b3;
   margin-top: 60px;
 }
 </style>
