@@ -24,9 +24,14 @@
   </div> -->
 
   <div v-for="(info, i) in products" :key="i">
-    <h4>허위 매물 정보</h4>
+    <h4>원룸 정보</h4>
     <p>{{products[i]}}</p>
     <p>{{price[i]}}</p>
+
+    <button @click="신고수[i]++">허위매물신고</button> <span>신고수 : {{신고수[i]}}</span>
+
+    <button @click="increase(i)">추천</button> <span>추천수 : {{추천수[i]}}</span>
+
   </div>
 
 
@@ -39,6 +44,8 @@ export default {
   name: 'App',
   data(){
     return {
+      신고수 : [0, 0, 0],
+      추천수 : [0, 0, 0],
       products : ['역삼동 원룸', '천호동 원룸', '군산 원룸'],
       price : [100, 70, 60],
       style1 : 'color : blue',
@@ -46,6 +53,14 @@ export default {
       menus : ['Home', 'Product', 'About'],
 
     }
+  },
+  // 함수 만드는 공간
+  methods : {
+    increase(i){
+      this.추천수[i] += 1;
+
+    }
+
   },
   components: {
     
