@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
-        <!-- html 속성 바인딩 구간 : 앞쪽에 콜론을 사용 -->
+  <div class="menu">
+    <!-- 반복을 쌩으로 한다면 -->
+    <!-- <a href="">Home</a>
+    <a href="">Products</a>
+    <a href="">About</a> -->
+
+    <!-- 반복문 사용, key 값을 반드시 설정해줘야 한다.-->
+    <a v-for="(menu, i) in menus" :key="i" href="">{{menu}} {{i}}</a>
+
+
+  </div>
+
+
+  <!-- <div>
     <h4 class='red' :style="style1">종로 원룸</h4>
-       <!-- 내용 데이터 바인딩 구간 : 쌍중괄호 -->
     <p>{{price1}}</p>
     <p>{{products[1]}}</p>  
   </div>
-    <div>
+  <div>
     <h4>강남 원룸</h4>
     <p>{{price2}}</p>
     <p>{{products[0]}}</p>  
+  </div> -->
+
+  <div v-for="(info, i) in products" :key="i">
+    <h4>허위 매물 정보</h4>
+    <p>{{products[i]}}</p>
+    <p>{{price[i]}}</p>
   </div>
+
 
 </template>
 
@@ -20,13 +37,13 @@
 
 export default {
   name: 'App',
-  // 데이터 보관함 만들기 (return 중괄호 안에 데이터를 담는다)
   data(){
     return {
-      price1 : 100,
-      price2 : 70,
-      style1 : 'color : blue',
       products : ['역삼동 원룸', '천호동 원룸', '군산 원룸'],
+      price : [100, 70, 60],
+      style1 : 'color : blue',
+      
+      menus : ['Home', 'Product', 'About'],
 
     }
   },
@@ -43,6 +60,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #3a76b3;
-  margin-top: 60px;
+  margin-top: 30px;
+}
+
+.menu {
+  background: darkslateblue;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.menu a {
+  color: white;
+  padding: 10px;
 }
 </style>
